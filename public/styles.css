@@ -1,6 +1,14 @@
+/* https://www.w3schools.com/css/css3_images.asp */
+
 body {
-    background-color: lightcoral;
+    background-color: rgb(44, 27, 75);
     font-family: "Courier New", Courier, monospace;
+}
+
+h1,
+h2 {
+    color: whitesmoke;
+    text-align: center;
 }
 
 .cards-container {
