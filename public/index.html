@@ -9,6 +9,14 @@
     <main>
         <h1>{{h1}}</h1>
         <h2>{{h2}}</h2>
+<form class="upload-form">
+<input type="text" id="image-title" name="image-title" placeholder="Image title"><br>
+<input type="text" id="image-description" name="image-description" placeholder="Image description"><br>
+<input type="text" id="username" name="username" placeholder="Username"><br>
+<input type="file" id="file-upload" name="file-upload" accept="image/*"><br>
+<button>Upload</button>
+</form>
+<div id="line-break"></div>
         <div class="cards-container">
             <div class="image-card" v-for="image in boardImages"><img v-bind:src="image" width="425px"></div>
         </div>

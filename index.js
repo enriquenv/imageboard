@@ -1,6 +1,8 @@
 // Server code
+// Errors in terminal
 const express = require("express");
 const app = express();
+const db = require("./db.js");
 
 app.use(express.static("public"));
 app.use(express.json());
@@ -14,9 +16,15 @@ let boardImages = [
 ];
 
 app.get("/image-board", (req, res) => {
+    /* db.getImages().then(({ rows }) => {
+        console.log({ rows });
+    }); */
     res.json({
         boardImages,
     });
 });
+/* app.post("/image-board", (req, res) => {
+    console.log("Post request made!");
+}); */
 
 app.listen(8080, () => console.log("listening"));

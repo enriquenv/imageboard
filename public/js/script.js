@@ -1,4 +1,5 @@
 // Public javascript for frontend page
+// Errors in browser console
 (function () {
     new Vue({
         el: "main",
@@ -17,6 +18,11 @@
                 .catch(function (err) {
                     console.log("err in GET /image-board: ", err);
                 });
+        },
+        methods: {
+            handleCLick: function () {
+                console.log("this! ", this);
+            },
         },
     });
 })();
