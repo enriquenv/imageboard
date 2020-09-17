@@ -7,3 +7,8 @@ body {
     display: flex;
     flex-flow: row wrap;
 }
+
+.image-card {
+    height: 30px;
+    width: 30px;
+}
