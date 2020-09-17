@@ -1,0 +1,9 @@
+body {
+    background-color: lightcoral;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.cards-container {
+    display: flex;
+    flex-flow: row wrap;
+}
