@@ -6,9 +6,15 @@ body {
 .cards-container {
     display: flex;
     flex-flow: row wrap;
+    align-items: flex-end;
 }
 
-.image-card {
+img {
+    border-radius: 8px;
+    margin: 2px;
+}
+
+/* .image-card {
     height: 30px;
     width: 30px;
-}
+} */
