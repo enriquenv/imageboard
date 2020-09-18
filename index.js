@@ -39,12 +39,20 @@ let boardImages = [
 ];
 
 app.get("/image-board", (req, res) => {
-    /* db.getImages().then(({ rows }) => {
-        console.log({ rows });
-    }); */
-    res.json({
-        boardImages,
+    db.getImages().then(({ rows }) => {
+        // console.log(rows);
+        // console.log(rows.rows[0].id);
+        // console.log(rows[2]id);
+        // console.log(rows.rows[0].title);
+        res.json(rows);
     });
+
+    /*     db.getImages().then(({ rows }) => {
+        res.json({ rows });
+    }); */
+    /*     res.json({
+        boardImages,
+    }); */
 });
 app.post("/upload", uploader.single("file"), (req, res) => {
     console.log("file: ", req.file);

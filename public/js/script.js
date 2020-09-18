@@ -17,7 +17,9 @@
             axios
                 .get("/image-board")
                 .then(function (resp) {
-                    that.boardImages = resp.data.boardImages;
+                    that.boardImages = resp.data[0];
+                    console.log(resp.data[0]);
+                    console.log(resp);
                 })
                 .catch(function (err) {
                     console.log("err in GET /image-board: ", err);
