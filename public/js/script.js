@@ -26,7 +26,19 @@
         methods: {
             handleClick: function (e) {
                 e.preventDefault();
-                console.log("this! ", this);
+                formData.append("title", this.imagetitle);
+                formData.append("description", this.imagedescription);
+                formData.append("username", this.username);
+                formData.append("file", this.file);
+
+                axios
+                    .post("/upload", formData)
+                    .then(function (resp) {
+                        console.log("resp from POST /upload: ", resp);
+                    })
+                    .catch(function (err) {
+                        console.log("err from POST /upload: ", err);
+                    });
             },
             handleChange: function (e) {
                 // console.log("handleChange is running!");
