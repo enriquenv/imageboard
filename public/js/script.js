@@ -27,6 +27,7 @@
         },
         methods: {
             handleClick: function (e) {
+                var that = this;
                 e.preventDefault();
                 var formData = new FormData();
                 // console.log("username", username);
@@ -41,6 +42,20 @@
                     .post("/upload", formData)
                     .then(function (resp) {
                         console.log("resp from POST /upload: ", resp);
+                        console.log("resp.data from POST /upload: ", resp.data);
+                        console.log(
+                            "resp.data from POST /upload: ",
+                            resp.data[0]
+                        );
+                        console.log(
+                            "that.boardImages BEFORE unshift",
+                            that.boardImages
+                        );
+                        that.boardImages.unshift(resp.data.image);
+                        console.log(
+                            "that.boardImages AFTER unshift",
+                            that.boardImages
+                        );
                     })
                     .catch(function (err) {
                         console.log("err from POST /upload: ", err);
