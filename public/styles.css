@@ -45,12 +45,12 @@ img {
 }
 
 .popmodal {
-    padding-top: 15px;
+    padding-top: 5px;
     height: 90%;
     width: 70%;
     background-color: lightgray;
     left: 200px;
-    top: 100px;
+    top: 50px;
     position: fixed;
     text-align: center;
     border-style: dashed;

@@ -27,7 +27,7 @@
         </div>
 
         <popmodal :id="id" v-if="showModal" @close="closePop"></popmodal>
-        
+
     </main>
 
     <script id="popmodal" type="text/x-template">
@@ -44,7 +44,7 @@
             <h4>Leave a comment:</h4>
             <input v-model="comment" type="text" name="comment" placeholder="comment">
             <input v-model="name" type="text" name="name" placeholder="name">
-            <button @click="handleClick">Submit</button>
+            <button @click="handleClickImage">Submit</button>
 
         </div>
     </script>
