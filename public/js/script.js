@@ -17,7 +17,7 @@
             axios
                 .get("/image-board")
                 .then(function (resp) {
-                    that.boardImages = resp.data[0];
+                    that.boardImages = resp.data;
                     console.log(resp.data[0]);
                     console.log(resp);
                 })
@@ -28,8 +28,9 @@
         methods: {
             handleClick: function (e) {
                 e.preventDefault();
-                formData.append("title", this.imagetitle);
-                formData.append("description", this.imagedescription);
+                var formData = new FormData();
+                formData.append("imagetitle", this.imagetitle);
+                formData.append("imagedescription", this.imagedescription);
                 formData.append("username", this.username);
                 formData.append("file", this.file);
 

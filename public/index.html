@@ -19,7 +19,11 @@
 </form>
 <div id="line-break"></div>
         <div class="cards-container">
-            <div class="image-card" v-for="image in boardImages"><img v-bind:src="image" width="425px"></div>
+            <div class="image-card" v-for="image in boardImages">
+                <img v-bind:src="image.url" width="425px">
+                <p class="image-title" width="425px">{{image.title}}</p>
+            </div>
+            
         </div>
     </main>
     <script src="/js/vue.js"></script>

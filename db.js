@@ -8,3 +8,14 @@ const db = spicedPg(
 module.exports.getImages = () => {
     return db.query(`SELECT * FROM images`);
 };
+
+module.exports.addImage = (url, username, imagetitle, imagedescription) => {
+    return db.query(
+        `INSERT INTO images (url, username, title, description) VALUES ($1, $2, $3, $4)  RETURNING*`,
+        [url, username, imagetitle, imagedescription]
+    );
+};
+
+module.exports.showImages = (id) => {
+    return db.query(`SELECT * FROM images where id = $1`, [id]);
+};

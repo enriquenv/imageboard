@@ -3,9 +3,11 @@
 const express = require("express");
 const app = express();
 const db = require("./db");
+const s3 = require("./s3");
 const multer = require("multer");
 const uidSafe = require("uid-safe");
 const path = require("path");
+const { s3Url } = require("./config");
 
 app.use(express.static("public"));
 app.use(express.json());
@@ -54,14 +56,24 @@ app.get("/image-board", (req, res) => {
         boardImages,
     }); */
 });
-app.post("/upload", uploader.single("file"), (req, res) => {
+app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
     console.log("file: ", req.file);
     console.log("input: ", req.body);
 
     // change to db insert with information
     if (req.file) {
-        res.json({
-            success: true,
+        const filename = req.file.filename;
+        const url = `${s3Url}${filename}`;
+        db.addImage(
+            url,
+            req.body.username,
+            req.body.imagetitle,
+            req.body.imagedescription
+        ).then(({ rows }) => {
+            console.log("rows0 in uploaded image", rows[0]);
+            res.json({
+                image: rows[0],
+            });
         });
     } else {
         res.json({
