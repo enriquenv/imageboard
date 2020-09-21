@@ -42,11 +42,11 @@
                     .post("/upload", formData)
                     .then(function (resp) {
                         console.log("resp from POST /upload: ", resp);
-                        console.log("resp.data from POST /upload: ", resp.data);
-                        console.log(
-                            "resp.data from POST /upload: ",
-                            resp.data[0]
-                        );
+                        // console.log("resp.data from POST /upload: ", resp.data);
+                        // console.log(
+                        //     "resp.data from POST /upload: ",
+                        //     resp.data[0]
+                        // );
                         console.log(
                             "that.boardImages BEFORE unshift",
                             that.boardImages
