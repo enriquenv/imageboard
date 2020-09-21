@@ -29,6 +29,9 @@
             handleClick: function (e) {
                 e.preventDefault();
                 var formData = new FormData();
+                // console.log("username", username);
+                // console.log("this.username", this.username);
+
                 formData.append("imagetitle", this.imagetitle);
                 formData.append("imagedescription", this.imagedescription);
                 formData.append("username", this.username);
