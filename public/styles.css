@@ -43,6 +43,20 @@ img {
 .image-title {
     background-color: lightgray;
 }
+
+.popmodal {
+    padding-top: 15px;
+    height: 70%;
+    width: 70%;
+    background-color: lightgray;
+    left: 200px;
+    top: 100px;
+    position: fixed;
+    text-align: center;
+    border-style: dashed;
+    border-color: black;
+}
+
 /* .image-card {
     height: 30px;
     width: 30px;

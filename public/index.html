@@ -19,13 +19,36 @@
 </form>
 <div id="line-break"></div>
         <div class="cards-container">
-            <div class="image-card" v-for="image in boardImages">
+            <div class="image-card" v-for="image in boardImages" @click="handleClickPop(image.id)">
                 <img v-bind:src="image.url" width="425px">
                 <p class="image-title" width="425px">{{image.title}}</p>
             </div>
             
         </div>
+
+        <popmodal :id="id" v-if="showModal" @close="closeModal">
+        </popmodal>
     </main>
+
+    <script id="popmodal" type="text/x-template">
+        <div class="popmodal">
+             <button @click="closePop">X</button>
+            <p>Image {{id}}: {{imagetitle}}</p>
+             <img :src="url">
+                <p> {{title}}</p>
+                <ul v-if="comments.length > 0">
+                    <li v-for="message in comments" >{{message.comment}} {{message.username}}</li>
+                </ul>
+                 <p v-else>Be the first one to leave a comment!</p>
+
+            <h4>Leave a comment:</h4>
+            <input v-model="comment" type="text" name="comment" placeholder="comment">
+            <input v-model="name" type="text" name="name" placeholder="name">
+            <button @click="handleClick">Submit</button>
+
+        </div>
+    </script>
+
     <script src="/js/vue.js"></script>
     <script src="/js/axios.min.js"></script>
     <script src="/js/script.js"></script>

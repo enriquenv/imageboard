@@ -84,4 +84,42 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
     }
 });
 
+app.get("/images/:id", (req, res) => {
+    console.log("req.params in /images/:id", req.params);
+    db.getBigImage(req.params.id)
+        .then((result) => {
+            //console.log("getBigImage result", result);
+            let image = result.rows[0];
+            db.getComments(result.rows[0].id)
+                .then((list) => {
+                    let comments = list.rows;
+                    console.log("comments", comments);
+                    res.json({
+                        image,
+                        comments,
+                    });
+                })
+                .catch((err) => {
+                    console.log("Error in getComments: ", err);
+                });
+        })
+        .catch((err) => {
+            console.log("Error in getBigImage: ", err);
+        });
+});
+
+app.post("/comment", (req, res) => {
+    console.log("req.body in /comment", req.body);
+    db.addComment(req.body.comment, req.body.name, req.body.image_id)
+        .then(({ rows }) => {
+            console.log("addComment rows: ", rows);
+            res.json({
+                comment: rows[0],
+            });
+        })
+        .catch((err) => {
+            console.log("error in addComment", err);
+        });
+});
+
 app.listen(8080, () => console.log("listening"));
