@@ -26,15 +26,15 @@
             
         </div>
 
-        <popmodal :id="id" v-if="showModal" @close="closeModal">
-        </popmodal>
+        <popmodal :id="id" v-if="showModal" @close="closePop"></popmodal>
+        
     </main>
 
     <script id="popmodal" type="text/x-template">
         <div class="popmodal">
              <button @click="closePop">X</button>
             <p>Image {{id}}: {{imagetitle}}</p>
-             <img :src="url">
+             <img class="popimage" width="425px" :src="url">
                 <p> {{title}}</p>
                 <ul v-if="comments.length > 0">
                     <li v-for="message in comments" >{{message.comment}} {{message.username}}</li>

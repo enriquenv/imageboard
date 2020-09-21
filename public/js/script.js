@@ -25,7 +25,7 @@
                 .then(function (resp) {
                     // console.log("get /images/this.id response: ", resp);
                     // console.log("resp.data.img", resp.data.img);
-                    var image = resp.data.img;
+                    var image = resp.data.image;
                     var comments = resp.data.comments;
                     console.log("we are here", comments);
                     that.id = image.id;
@@ -141,9 +141,14 @@
                 this.id = id;
                 this.showModal = true;
             },
+            // closePop: function () {
+            //     //console.log("Popmodal clicked to close")
+            //     this.showModal = false;
+            // },
             closePop: function () {
-                //console.log("Popmodal clicked to close")
-                this.showModal = false;
+                console.log("Popmodal clicked to close");
+                location.reload();
+                // this.showModal = false;
             },
         },
     });
