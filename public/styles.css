@@ -23,6 +23,12 @@ h2 {
     align-items: flex-end;
 }
 
+.image-card {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
 #line-break {
     display: flex;
     flex-basis: 100%;
@@ -34,6 +40,9 @@ img {
     margin: 2px;
 }
 
+.image-title {
+    background-color: lightgray;
+}
 /* .image-card {
     height: 30px;
     width: 30px;
